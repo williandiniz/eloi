@@ -15,6 +15,9 @@ COPY .apache/. /etc/apache2/
 RUN chmod -R 777 /var/www/html
 RUN a2ensite webapi
 RUN a2enmod rewrite
+RUN a2enmod headers
+RUN a2enmod proxy
+RUN a2enmod proxy_http
 EXPOSE 8080
 USER 1001
 RUN service apache2 restart
